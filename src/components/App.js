@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { connect } from 'react-redux';
+import { countUp, countDown, countReset } from '../actions/countAction';
 
 class App extends Component {
-  constructor(props) {
+/*  constructor(props) {
     super(props);
     this.state = {
       count: 0
@@ -27,10 +27,10 @@ class App extends Component {
         count: 0
       })
     }
-  }
+  }*/
 
   render() {
-    const { count } = this.state;
+    const { count } = this.props;
     return (
       <div className="App">
         <p>{count}</p>
@@ -44,4 +44,21 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state, ownProps) => {
+  console.log(state);
+
+  const { count } = state.count
+  return {
+    count
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    countUp: () => dispatch(countUp()),
+    countDown: () => dispatch(countDown()),
+    countReset: () => dispatch(countReset())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
