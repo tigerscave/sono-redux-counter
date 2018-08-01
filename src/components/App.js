@@ -35,9 +35,9 @@ class App extends Component {
       <div className="App">
         <p>{count}</p>
         <div className="button">
-          <button onClick={this.countUp}>+</button>
-          <button onClick={this.countDown}>-</button>
-          <button onClick={this.countReset}>reset</button>
+          <button onClick={this.props.countUp}>+</button>
+          <button onClick={this.props.countDown}>-</button>
+          <button onClick={this.props.countReset}>reset</button>
         </div>
       </div>
     );

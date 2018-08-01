@@ -6,7 +6,7 @@ const initialState = {
   count: 0,
 }
 
-export function counter(state = initialState, action) {
+export default function (state = initialState, action) {
   console.log(state);
   switch (action.type) {
     case 'COUNT_UP': {
