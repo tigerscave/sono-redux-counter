@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import pageData from './pageData';
+import counter from './counter';
 
 export default combineReducers({
-  pageData
+  counter,
 });

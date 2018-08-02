@@ -5,9 +5,9 @@ import reducers from './modules';
 const store = createStore(
   reducers,
   {},
-  composeWithDevTools()
-)
+  composeWithDevTools(),
+);
 
 export default function configureStore() {
-  return store
+  return store;
 }

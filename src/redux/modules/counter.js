@@ -10,12 +10,11 @@ export const COUNT_SUBMIT = 'COUNT_SUBMIT';
 export const countSubmit = createAction('COUNT_SUBMIT');
 
 const initialState = {
-  count: 0
+  count: 0,
 };
 
-const pageDataReducer = (state = initialState, action) => {
-
-  switch(action.type) {
+const counterReducer = (state = initialState, action) => {
+  switch (action.type) {
     case COUNT_UP: {
       const { count } = state;
       return {
@@ -41,7 +40,7 @@ const pageDataReducer = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
 
-export default pageDataReducer;
+export default counterReducer;
