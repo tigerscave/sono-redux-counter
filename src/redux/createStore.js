@@ -5,12 +5,9 @@ import reducers from './modules';
 const store = createStore(
   reducers,
   {},
-  /* preloadedState, */
-  devToolsEnhancer(
-  // Specify name here, actionsBlacklist, actionsCreators and other options if needed
-  ),
+  devToolsEnhancer()
 );
 
 export default function configureStore() {
-  return store;
+  return store
 }
