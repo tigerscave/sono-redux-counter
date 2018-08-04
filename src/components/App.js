@@ -6,6 +6,12 @@ import {
   countDown as _countDown,
   countReset as _countReset,
   countSubmit as _countSubmit,
+  countUp1 as _countUp1,
+  countUp2 as _countUp2,
+  countUp3 as _countUp3,
+  countUp4 as _countUp4,
+  countUp5 as _countUp5,
+  countUp6 as _countUp6,
 } from '../redux/modules/counter';
 
 class App extends React.Component {
@@ -24,18 +30,16 @@ class App extends React.Component {
 
   render() {
     const {
-      count, countUp, countDown, countReset, countSubmit,
+      count, countUp, countDown, countReset, countSubmit, countUp1, countUp2, countUp3, countUp4, countUp5, countUp6,
     } = this.props;
     const { inputNumber } = this.state;
     return (
       <div className="App">
         <div>
           {count}
-          {' '}
-          {inputNumber}
         </div>
         <div className="button">
-          <button onClick={countUp} type="button">
+          <button onClick={() => countUp()} type="button">
             +
           </button>
           <button onClick={countDown} type="button">
@@ -45,12 +49,18 @@ class App extends React.Component {
             reset
           </button>
         </div>
-        <form onSubmit={countSubmit}>
-          <div className="submit">
+        <div className="submit">
             <input type="number" value={inputNumber} onChange={e => this.handleChange(e)} />
-            <input type="submit" />
-          </div>
-        </form>
+            <button onClick={() => countSubmit(inputNumber)}>click me </button>
+        </div>
+        <div>
+          <button onClick={countUp1}>1</button>
+          <button onClick={countUp2}>2</button>
+          <button onClick={countUp3}>3</button>
+          <button onClick={countUp4}>4</button>
+          <button onClick={countUp5}>5</button>
+          <button onClick={countUp6}>6</button>
+        </div>
       </div>
     );
   }
@@ -62,6 +72,12 @@ App.propTypes = {
   countDown: PropTypes.func.isRequired,
   countReset: PropTypes.func.isRequired,
   countSubmit: PropTypes.func.isRequired,
+  countUp1: PropTypes.func.isRequired,
+  countUp2: PropTypes.func.isRequired,
+  countUp3: PropTypes.func.isRequired,
+  countUp4: PropTypes.func.isRequired,
+  countUp5: PropTypes.func.isRequired,
+  countUp6: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {
@@ -75,7 +91,13 @@ const mapDispatchToProps = dispatch => ({
   countUp: () => dispatch(_countUp()),
   countDown: () => dispatch(_countDown()),
   countReset: () => dispatch(_countReset()),
-  countSubmit: () => dispatch(_countSubmit()),
+  countSubmit: (inputNumber) => dispatch(_countSubmit(inputNumber)),
+  countUp1: () => dispatch(_countUp1()),
+  countUp2: () => dispatch(_countUp2()),
+  countUp3: () => dispatch(_countUp3()),
+  countUp4: () => dispatch(_countUp4()),
+  countUp5: () => dispatch(_countUp5()),
+  countUp6: () => dispatch(_countUp6()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
